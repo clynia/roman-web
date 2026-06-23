@@ -65,4 +65,21 @@
       if (note) note.textContent = 'Se abrirá tu correo para enviar la solicitud. Gracias.';
     });
   }
+
+  // Aviso de cookies (terceros: Spotify / YouTube)
+  (function () {
+    try { if (localStorage.getItem('rm_cookies') === '1') return; } catch (e) {}
+    const bar = document.createElement('div');
+    bar.className = 'cookie';
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', 'Aviso de cookies');
+    bar.innerHTML = '<p>Usamos cookies de terceros solo al reproducir música o vídeos (Spotify, YouTube). <a href="legal.html#cookies">Más información</a>.</p><button class="btn btn--gold" type="button">Aceptar</button>';
+    document.body.appendChild(bar);
+    requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.add('is-in')));
+    bar.querySelector('button').addEventListener('click', () => {
+      try { localStorage.setItem('rm_cookies', '1'); } catch (e) {}
+      bar.classList.remove('is-in');
+      setTimeout(() => bar.remove(), 500);
+    });
+  })();
 })();
