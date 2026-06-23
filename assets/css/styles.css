@@ -158,10 +158,10 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:480;line-height:1.04;letter
 .nav.is-open .nav__toggle span::after{top:0;transform:rotate(-45deg)}
 
 /* ---------- HERO · La Travesía ---------- */
-.hero{position:relative;height:300vh;background:var(--night-0)}
+.hero{position:relative;height:250vh;background:var(--night-0)}
 .hero__sticky{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden}
 .hero__sky{position:absolute;inset:0;z-index:0}
-.hero__sky:not(.hero__sky--dawn){background:linear-gradient(180deg,#03050e 0%,#0a1730 56%,#0a2236 100%)}
+.hero__sky:not(.hero__sky--dawn){background:radial-gradient(58% 46% at 50% 62%, rgba(90,120,180,.20), transparent 72%), linear-gradient(180deg,#03050e 0%,#0a1730 56%,#0a2236 100%)}
 .hero__sky--dawn{background:linear-gradient(180deg,#1b2349 0%,#7a3f2c 48%,#bd6c40 70%,#f4c56a 100%);opacity:0}
 .hero__shell{position:absolute;inset:0;width:100%;height:100%;z-index:1;color:#9fb6d8}
 .hero__shell .rib{stroke:currentColor;stroke-width:3.2;stroke-linecap:round;fill:none;opacity:.9}

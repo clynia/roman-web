@@ -1,0 +1,5 @@
+# Forzar UTF-8 (algunos hosts no envían charset y rompen los acentos)
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js .xml .svg .json .webmanifest
+</IfModule>

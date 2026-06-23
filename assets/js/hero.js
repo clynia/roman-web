@@ -1,9 +1,9 @@
 /* =============================================================
    HERO · La Travesía  (concha de Santiago vectorial, scroll-driven)
-   La concha se dibuja sobre la noche atlántica y, al hacer scroll,
-   se abre y se convierte en el amanecer del Pacífico: las costillas
-   se vuelven rayos de sol y la web se revela. Todo en vectores =
-   fluido y ligero. "Algo que se convierte en él".
+   En carga: la concha aparece dibujada sobre la noche atlántica con
+   el lema (nunca pantalla en negro). Al hacer scroll se abre y se
+   convierte en el amanecer del Pacífico (costillas -> rayos de sol)
+   y se revela la web. Todo vectores = fluido y ligero.
    ============================================================= */
 (function () {
   const hero = document.querySelector('.hero');
@@ -25,20 +25,20 @@
   const cue = document.querySelector('.hero__scroll');
   const dawn = document.querySelector('.hero__sky--dawn');
 
-  // ---- Construir el cuerpo de la concha (abanico con borde festoneado) ----
+  // ---- Cuerpo de la concha (abanico festoneado) ----
   let d = `M ${cx} ${cy} `;
   const steps = 170;
   for (let s = 0; s <= steps; s++) {
     const t = s / steps;
     const a = -aMax + t * 2 * aMax;
-    const scallop = 1 - 0.05 * Math.abs(Math.sin(t * (N - 1) * Math.PI));
-    const r = L * scallop;
+    const sc = 1 - 0.05 * Math.abs(Math.sin(t * (N - 1) * Math.PI));
+    const r = L * sc;
     d += `L ${(cx + r * Math.sin(a)).toFixed(1)} ${(cy - r * Math.cos(a)).toFixed(1)} `;
   }
   d += 'Z';
   body.setAttribute('d', d);
 
-  // ---- Costillas (que luego serán rayos) ----
+  // ---- Costillas (dibujadas desde el inicio; serán rayos) ----
   const ribs = [];
   for (let i = 0; i < N; i++) {
     const a = -aMax + i * (2 * aMax / (N - 1));
@@ -49,21 +49,18 @@
     line.setAttribute('y2', (cy - L * 0.97 * Math.cos(a)).toFixed(1));
     line.setAttribute('class', 'rib');
     ribsG.appendChild(line);
-    const len = L * 0.97;
-    line.style.strokeDasharray = len;
-    line.style.strokeDashoffset = len;
     ribs.push(line);
   }
 
   function finalState() {
-    ribs.forEach(l => { l.style.strokeDashoffset = 0; });
     body.style.opacity = 1;
     if (dawn) dawn.style.opacity = 1;
+    svg.style.opacity = 1;
     svg.style.color = '#f4cd78';
     sun.setAttribute('r', 178); sun.style.opacity = 1;
     glow.style.opacity = 1;
-    shell.setAttribute('transform', 'translate(0,-26) scale(1.18)');
     shell.style.transformOrigin = '500px 660px';
+    shell.setAttribute('transform', 'translate(0,-26) scale(1.18)');
     if (lema) lema.style.opacity = 0;
     if (reveal) { reveal.style.opacity = 1; reveal.style.transform = 'none'; }
     if (cue) cue.style.opacity = 0;
@@ -74,35 +71,33 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Estado inicial: noche, concha sin dibujar, sol apagado
-  svg.style.color = '#9fb6d8';
-  gsap.set(shell, { svgOrigin: '500 660', scale: 0.9 });
-  gsap.set(body, { opacity: 0 });
+  // ESTADO INICIAL VISIBLE: concha plateada sobre la noche + lema
+  svg.style.color = '#aac2e2';
+  gsap.set(shell, { svgOrigin: '500 660', scale: 0.96 });
   gsap.set(sun, { attr: { r: 0 }, opacity: 0 });
   gsap.set(glow, { opacity: 0 });
   gsap.set(dawn, { opacity: 0 });
-  gsap.set(reveal, { opacity: 0, y: 24 });
+  gsap.set(body, { opacity: 1 });
+  gsap.set(lema, { opacity: 1 });
   gsap.set(cue, { opacity: 1 });
+  gsap.set(reveal, { opacity: 0, y: 24 });
 
+  // La concha y el lema son visibles desde la carga: no dependen de
+  // ninguna animación de entrada, así el hero nunca queda en negro.
+
+  // SCROLL: amanece, sale el sol, se abre y se revela la web
   const tl = gsap.timeline({
     scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: 0.5 }
   });
-
-  // Fase 1 — se dibuja la concha sobre la noche
-  tl.to(body, { opacity: 1, duration: 0.16 }, 0.02)
-    .to(ribs, { strokeDashoffset: 0, duration: 0.3, stagger: { each: 0.014, from: 'center' } }, 0.03)
-    .to(lema, { opacity: 1, duration: 0.12 }, 0.05)
-    // Fase 2 — amanece: la concha se convierte en sol
-    .to(dawn, { opacity: 1, duration: 0.42 }, 0.30)
-    .to(svg, { color: '#f4cd78', duration: 0.42 }, 0.32)
-    .to(sun, { attr: { r: 178 }, opacity: 1, duration: 0.42, ease: 'power2.out' }, 0.34)
-    .to(glow, { opacity: 1, duration: 0.42 }, 0.34)
-    .to(shell, { scale: 1.16, y: -26, duration: 0.55, ease: 'power1.inOut' }, 0.30)
-    .to(lema, { opacity: 0, duration: 0.14 }, 0.50)
-    // Fase 3 — se abre y se revela la web
-    .to(shell, { scale: 1.3, duration: 0.32, ease: 'power1.out' }, 0.66)
-    .to(reveal, { opacity: 1, y: 0, duration: 0.32, ease: 'power3.out' }, 0.66)
-    .to(cue, { opacity: 0, duration: 0.1 }, 0.7);
+  tl.to(dawn, { opacity: 1, duration: 0.45 }, 0.0)
+    .to(svg, { color: '#f4cd78', duration: 0.45 }, 0.0)
+    .to(sun, { attr: { r: 178 }, opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.04)
+    .to(glow, { opacity: 1, duration: 0.45 }, 0.04)
+    .to(shell, { scale: 1.16, y: -24, duration: 0.6, ease: 'power1.inOut' }, 0.0)
+    .to(lema, { opacity: 0, duration: 0.2 }, 0.26)
+    .to(shell, { scale: 1.3, duration: 0.34, ease: 'power1.out' }, 0.6)
+    .to(reveal, { opacity: 1, y: 0, duration: 0.34, ease: 'power3.out' }, 0.58)
+    .to(cue, { opacity: 0, duration: 0.12 }, 0.5);
 
   requestAnimationFrame(() => ScrollTrigger.refresh());
 })();
