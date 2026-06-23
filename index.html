@@ -67,7 +67,6 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" aria-label="Román Mosteiro, inicio">
-    <img src="assets/img/source/logo_concha.png" alt="" aria-hidden="true" />
     <span>Román&nbsp;Mosteiro</span>
   </a>
   <nav class="nav__links" aria-label="Principal">
@@ -86,9 +85,31 @@
 <!-- ============ HERO · LA TRAVESÍA ============ -->
 <section class="hero" id="hero" aria-label="Román Mosteiro — La Travesía">
   <div class="hero__sticky">
-    <video class="hero__film" muted playsinline preload="auto" poster="assets/img/hero/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/img/hero/hero-travesia.mp4" type="video/mp4" />
-    </video>
+    <div class="hero__sky" aria-hidden="true"></div>
+    <div class="hero__sky hero__sky--dawn" aria-hidden="true"></div>
+    <svg class="hero__shell" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff5da" />
+          <stop offset="55%" stop-color="#f4c56a" />
+          <stop offset="100%" stop-color="#e9a53e" />
+        </radialGradient>
+        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f4cd78" stop-opacity=".5" />
+          <stop offset="100%" stop-color="#f4cd78" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="bodyGrad" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#f4cd78" stop-opacity="0" />
+          <stop offset="100%" stop-color="#f4cd78" stop-opacity=".16" />
+        </linearGradient>
+      </defs>
+      <g id="shell">
+        <circle id="glow" cx="500" cy="660" r="430" fill="url(#glowGrad)" />
+        <path id="shellBody" fill="url(#bodyGrad)" stroke="currentColor" stroke-width="2" stroke-opacity=".45" />
+        <g id="ribs"></g>
+        <circle id="sun" cx="500" cy="660" r="0" fill="url(#sunGrad)" />
+      </g>
+    </svg>
     <div class="hero__veil" aria-hidden="true"></div>
     <div class="hero__content">
       <p class="hero__lema">One life. Surf it well.</p>
