@@ -83,55 +83,26 @@
 <main id="top">
 
 <!-- ============ HERO · LA TRAVESÍA ============ -->
-<section class="hero" id="hero" aria-label="Román Mosteiro — La Travesía">
-  <div class="hero__sticky">
-    <div class="hero__sky" aria-hidden="true"></div>
-    <div class="hero__sky hero__sky--dawn" aria-hidden="true"></div>
-    <svg class="hero__shell" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <defs>
-        <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fff5da" />
-          <stop offset="55%" stop-color="#f4c56a" />
-          <stop offset="100%" stop-color="#e9a53e" />
-        </radialGradient>
-        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#f4cd78" stop-opacity=".5" />
-          <stop offset="100%" stop-color="#f4cd78" stop-opacity="0" />
-        </radialGradient>
-        <linearGradient id="bodyGrad" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stop-color="#f4cd78" stop-opacity="0" />
-          <stop offset="100%" stop-color="#f4cd78" stop-opacity=".16" />
-        </linearGradient>
-      </defs>
-      <g id="shell">
-        <circle id="glow" cx="500" cy="660" r="430" fill="url(#glowGrad)" />
-        <path id="shellBody" fill="url(#bodyGrad)" stroke="currentColor" stroke-width="2" stroke-opacity=".45" />
-        <g id="ribs"></g>
-        <circle id="sun" cx="500" cy="660" r="0" fill="url(#sunGrad)" />
-      </g>
-    </svg>
-    <div class="hero__veil" aria-hidden="true"></div>
-    <div class="hero__content">
-      <p class="hero__lema">One life. Surf it well.</p>
-      <div class="hero__reveal">
-        <p class="h-eyebrow">Del Atlántico al Pacífico</p>
-        <h1 class="hero__name">Román Mosteiro</h1>
-        <p class="hero__tag">Cantautor. De A Coruña a Jalisco.</p>
-        <div class="hero__coords" aria-hidden="true">
-          <span>43.3623° N · 8.4115° W</span>
-          <span>20.6296° N · 105.2245° W</span>
-        </div>
-        <div class="hero__actions">
-          <a class="btn btn--gold" href="#pazifico">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Escuchar PaZífico
-          </a>
-          <a class="btn btn--ghost" href="#viaje">Conoce su historia</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+<section class="hero" id="hero" aria-label="Román Mosteiro">
+  <div class="hero__media">
+    <img class="hero__img" src="assets/img/hero/roman-jalisco.png" alt="Román Mosteiro con su guitarra en la costa de Jalisco al amanecer" fetchpriority="high" />
   </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__inner container">
+    <p class="hero__eyebrow">Del Atlántico al Pacífico</p>
+    <h1 class="hero__name">Román Mosteiro</h1>
+    <p class="hero__tag">Cantautor gallego. <em>PaZífico</em>, su homenaje a José Alfredo Jiménez grabado en la costa de Jalisco.</p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="#pazifico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Escuchar PaZífico
+      </a>
+      <a class="btn btn--ghost" href="#viaje">Conoce su historia</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#pazifico" aria-label="Bajar al contenido">
+    <span>Scroll</span><span class="hero__scroll-line"></span>
+  </a>
 </section>
 
 <!-- ============ PAZÍFICO ============ -->
@@ -382,27 +353,27 @@
   <div class="container container--narrow" style="text-align:center;margin-inline:auto">
     <p class="h-eyebrow reveal">Escucha y sigue</p>
     <h2 class="display reveal" data-delay="1">Conecta</h2>
-    <p class="lead reveal" data-delay="1" style="margin-top:.6rem;font-style:normal;color:#3a2410">Toda su música y sus redes, en un solo sitio.</p>
+    <p class="lead reveal" data-delay="1" style="margin-top:.6rem;font-style:normal;color:var(--foam-soft)">Toda su música y sus redes, en un solo sitio.</p>
 
     <div class="platforms reveal" data-delay="2">
-      <a class="platform" href="https://open.spotify.com/intl-es/artist/6jCM8O5dwhpKtR6ZFxjYXv" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/spotify/241405" alt="" width="24" height="24" loading="lazy">Spotify</a>
-      <a class="platform" href="https://music.apple.com/es/artist/1456158718" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/applemusic/241405" alt="" width="24" height="24" loading="lazy">Apple Music</a>
-      <a class="platform" href="https://www.youtube.com/channel/UCZNrgTzfNhPyrd9yBGWx2NA" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/241405" alt="" width="24" height="24" loading="lazy">YouTube</a>
-      <a class="platform" href="https://music.amazon.es/artists/B07PRWDWSX" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/amazonmusic/241405" alt="" width="24" height="24" loading="lazy">Amazon Music</a>
-      <a class="platform" href="https://www.deezer.com/es/artist/87653942" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/deezer/241405" alt="" width="24" height="24" loading="lazy">Deezer</a>
+      <a class="platform" href="https://open.spotify.com/intl-es/artist/6jCM8O5dwhpKtR6ZFxjYXv" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/spotify/e7ddca" alt="" width="24" height="24" loading="lazy">Spotify</a>
+      <a class="platform" href="https://music.apple.com/es/artist/1456158718" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/applemusic/e7ddca" alt="" width="24" height="24" loading="lazy">Apple Music</a>
+      <a class="platform" href="https://www.youtube.com/channel/UCZNrgTzfNhPyrd9yBGWx2NA" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/e7ddca" alt="" width="24" height="24" loading="lazy">YouTube</a>
+      <a class="platform" href="https://music.amazon.es/artists/B07PRWDWSX" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/amazonmusic/e7ddca" alt="" width="24" height="24" loading="lazy">Amazon Music</a>
+      <a class="platform" href="https://www.deezer.com/es/artist/87653942" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/deezer/e7ddca" alt="" width="24" height="24" loading="lazy">Deezer</a>
     </div>
 
     <div class="socials reveal" data-delay="2" style="justify-content:center">
-      <a href="https://www.instagram.com/romanmosteiro/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/241405" alt="" width="22" height="22" loading="lazy"></a>
-      <a href="https://www.tiktok.com/@romanmosteiro" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/241405" alt="" width="22" height="22" loading="lazy"></a>
-      <a href="https://x.com/romanmosteiro" target="_blank" rel="noopener" aria-label="X"><img src="https://cdn.simpleicons.org/x/241405" alt="" width="22" height="22" loading="lazy"></a>
-      <a href="https://www.facebook.com/Rom%C3%A1n-Mosteiro-112136870398299" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/241405" alt="" width="22" height="22" loading="lazy"></a>
-      <a href="https://www.candestino.com" target="_blank" rel="noopener" aria-label="Candestino, conciertos para perros"><img src="https://cdn.simpleicons.org/dog/241405" alt="" width="22" height="22" loading="lazy" onerror="this.replaceWith(document.createTextNode('Candestino'))"></a>
+      <a href="https://www.instagram.com/romanmosteiro/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/e7ddca" alt="" width="22" height="22" loading="lazy"></a>
+      <a href="https://www.tiktok.com/@romanmosteiro" target="_blank" rel="noopener" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/e7ddca" alt="" width="22" height="22" loading="lazy"></a>
+      <a href="https://x.com/romanmosteiro" target="_blank" rel="noopener" aria-label="X"><img src="https://cdn.simpleicons.org/x/e7ddca" alt="" width="22" height="22" loading="lazy"></a>
+      <a href="https://www.facebook.com/Rom%C3%A1n-Mosteiro-112136870398299" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/e7ddca" alt="" width="22" height="22" loading="lazy"></a>
+      <a href="https://www.candestino.com" target="_blank" rel="noopener" aria-label="Candestino, conciertos para perros"><img src="https://cdn.simpleicons.org/dog/e7ddca" alt="" width="22" height="22" loading="lazy" onerror="this.replaceWith(document.createTextNode('Candestino'))"></a>
     </div>
 
-    <p class="reveal" data-delay="3" style="margin-top:1.8rem;color:#3a2410">
+    <p class="reveal" data-delay="3" style="margin-top:1.8rem;color:var(--foam-soft)">
       Contacto directo:
-      <a href="mailto:romanmosteiro@hotmail.com" style="color:#241405;font-weight:700;border-bottom:1px solid rgba(36,20,5,.4)">romanmosteiro@hotmail.com</a>
+      <a href="mailto:romanmosteiro@hotmail.com" style="color:var(--gold-2);font-weight:700;border-bottom:1px solid rgba(244,205,120,.5)">romanmosteiro@hotmail.com</a>
     </p>
   </div>
 </section>
@@ -438,9 +409,6 @@
 </footer>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="assets/js/hero.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
