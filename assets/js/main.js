@@ -54,6 +54,8 @@
   const heroTrack = document.querySelector('.hero__track');
   if (heroTrack && !reduce) {
     const floats = [].slice.call(heroTrack.querySelectorAll('.float'));
+    const heroPhoto = heroTrack.querySelector('.hero__photo');
+    const heroPhotoImg = heroPhoto ? heroPhoto.firstElementChild : null;
     const updateFloats = () => {
       const rect = heroTrack.getBoundingClientRect();
       const span = rect.height - window.innerHeight;
@@ -64,6 +66,12 @@
         f.classList.toggle('is-active', p >= s && p < e);
         f.classList.toggle('is-past', p >= e);
       });
+      // La foto de Roman emerge y toma protagonismo segun bajas
+      if (heroPhoto) {
+        const pp = Math.min(1, Math.max(0, (p - 0.32) / 0.55));
+        heroPhoto.style.opacity = pp;
+        if (heroPhotoImg) heroPhotoImg.style.transform = 'scale(' + (1.08 - 0.08 * pp).toFixed(3) + ')';
+      }
     };
     window.addEventListener('scroll', updateFloats, { passive: true });
     window.addEventListener('resize', updateFloats, { passive: true });
