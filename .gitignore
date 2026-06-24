@@ -3,5 +3,9 @@
 Thumbs.db
 desktop.ini
 
+# Documentos sueltos que no son web
+*.docx
+*.pdf
+
 # Material de diseño no usado en producción (generado durante el proceso)
 assets/img/hero/roman-cutout.png
