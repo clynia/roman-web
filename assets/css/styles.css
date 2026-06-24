@@ -200,6 +200,11 @@ h1,h2,h3,h4{font-family:var(--f-display);font-weight:480;line-height:1.04;letter
 .footer__brand{display:flex;align-items:center;gap:.6rem}
 .footer__brand .concha{width:1.75rem;height:1.75rem}
 @keyframes floaty{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-12px,0)}}
+@media (max-width:720px){
+  .float{width:min(90vw,28ch);transform:translate(-50%,-50%) translate(0,var(--y,0)) scale(.62)}
+  .float.is-active{transform:translate(-50%,-50%) translate(0,var(--y,0)) scale(1)}
+  .float.is-past{transform:translate(-50%,-50%) translate(0,var(--y,0)) scale(1.5)}
+}
 @keyframes heroIn{from{transform:translateY(18px)}to{transform:none}}
 @keyframes scrollline{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1)}100%{transform:scaleY(.2);transform-origin:bottom}}
 
