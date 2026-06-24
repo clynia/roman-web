@@ -3,3 +3,12 @@ AddDefaultCharset UTF-8
 <IfModule mod_mime.c>
   AddCharset UTF-8 .html .css .js .xml .svg .json .webmanifest
 </IfModule>
+
+# No cachear HTML/CSS/JS: que cada visita reciba siempre la última versión
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
