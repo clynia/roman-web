@@ -28,18 +28,26 @@
     );
   }
 
-  // Reveal al entrar en viewport
+  // Reveal al entrar en viewport (basado en scroll, robusto y sin depender de IO)
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const items = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('is-in'));
+  let pending = [].slice.call(document.querySelectorAll('.reveal'));
+  if (reduce) {
+    pending.forEach(el => el.classList.add('is-in'));
   } else {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+    const revealCheck = () => {
+      const trigger = window.innerHeight * 0.88;
+      pending = pending.filter(el => {
+        if (el.getBoundingClientRect().top < trigger) { el.classList.add('is-in'); return false; }
+        return true;
       });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(el => obs.observe(el));
+      if (!pending.length) {
+        window.removeEventListener('scroll', revealCheck);
+        window.removeEventListener('resize', revealCheck);
+      }
+    };
+    window.addEventListener('scroll', revealCheck, { passive: true });
+    window.addEventListener('resize', revealCheck, { passive: true });
+    revealCheck();
   }
 
   // Año en el footer

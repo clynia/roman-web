@@ -29,6 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/styles.css" />
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;filter:none !important}</style></noscript>
 
 <!-- Datos estructurados -->
 <script type="application/ld+json">
@@ -84,18 +85,69 @@
 
 <!-- ============ HERO · LA TRAVESÍA ============ -->
 <section class="hero" id="hero" aria-label="Román Mosteiro">
-  <div class="hero__halo" aria-hidden="true"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__rings" aria-hidden="true">
-    <span class="ring ring--1"></span>
-    <span class="ring ring--2"></span>
-    <span class="ring ring--3"></span>
-  </div>
-  <div class="hero__content">
+  <div class="hero__intro">
     <p class="hero__eyebrow">Del Atlántico al Pacífico</p>
     <h1 class="hero__name">Román Mosteiro</h1>
-    <p class="hero__tag">Cantautor gallego. <em>PaZífico</em>, su homenaje a José Alfredo Jiménez grabado en la costa de Jalisco.</p>
-    <div class="hero__actions">
+    <p class="hero__sub">Cantautor. Esto es lo que ha ido escribiendo por el camino.</p>
+    <div class="hero__scroll"><span>Sigue bajando</span><span class="hero__scroll-line"></span></div>
+  </div>
+
+  <!-- Muro de versos. FRASES INVENTADAS (placeholder): sustituir por letras reales. -->
+  <div class="lyrics">
+    <blockquote class="lyric lyric--xl reveal" data-align="left">
+      <p class="lyric__text">Y si el mar no me trae de vuelta, que me quede en la orilla cantando.</p>
+      <span class="lyric__src">de «Ítaca»</span>
+    </blockquote>
+
+    <p class="lyric lyric--sm reveal" data-align="right">
+      <span class="lyric__text">Hueles a especial, y yo a sal y a domingo por la tarde.</span>
+      <span class="lyric__src">de «Hueles a especial»</span>
+    </p>
+
+    <div class="tweet reveal" data-align="left">
+      <div class="tweet__head">
+        <div class="tweet__avatar">R</div>
+        <div class="tweet__who"><span class="tweet__name">Román Mosteiro</span><span class="tweet__handle">@romanmosteiro</span></div>
+      </div>
+      <p class="tweet__text">Le prometí a un perro que seguiría ladrándole a la vida.</p>
+      <p class="tweet__src">de «Pulgas»</p>
+    </div>
+
+    <blockquote class="lyric lyric--md reveal" data-align="right">
+      <p class="lyric__text">Crucé un océano entero para aprender a decir adiós en otro idioma.</p>
+      <span class="lyric__src">de «PaZífico»</span>
+    </blockquote>
+
+    <div class="quotecard reveal" data-align="center">
+      <p class="lyric__text">Duérmete, que mañana el mundo seguirá girando sin pedirnos permiso.</p>
+      <span class="lyric__src">de «Nana de Despedida»</span>
+    </div>
+
+    <blockquote class="lyric lyric--xl reveal" data-align="center">
+      <p class="lyric__text">Del Atlántico salí; en el Pacífico me encontré.</p>
+      <span class="lyric__src">de «PaZífico»</span>
+    </blockquote>
+
+    <p class="lyric lyric--sm reveal" data-align="left">
+      <span class="lyric__text">No hay nada que pensar cuando el cuerpo ya ha decidido quedarse.</span>
+      <span class="lyric__src">de «Nada Que Pensar»</span>
+    </p>
+
+    <div class="tweet reveal" data-align="right">
+      <div class="tweet__head">
+        <div class="tweet__avatar">R</div>
+        <div class="tweet__who"><span class="tweet__name">Román Mosteiro</span><span class="tweet__handle">@romanmosteiro</span></div>
+      </div>
+      <p class="tweet__text">Toda mi vida cabe en una guitarra y en un par de coordenadas.</p>
+      <p class="tweet__src">de «Ítaca»</p>
+    </div>
+
+    <blockquote class="lyric lyric--md reveal" data-align="center">
+      <p class="lyric__text">Esto no es el final. Es solo el sitio donde decidí empezar.</p>
+      <span class="lyric__src">de «Final»</span>
+    </blockquote>
+
+    <div class="reveal" style="align-self:center;display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:2vh">
       <a class="btn btn--gold" href="#pazifico">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         Escuchar PaZífico
@@ -103,9 +155,6 @@
       <a class="btn btn--ghost" href="#viaje">Conoce su historia</a>
     </div>
   </div>
-  <a class="hero__scroll" href="#pazifico" aria-label="Bajar al contenido">
-    <span>Scroll</span><span class="hero__scroll-line"></span>
-  </a>
 </section>
 
 <!-- ============ PAZÍFICO ============ -->
