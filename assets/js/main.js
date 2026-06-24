@@ -50,6 +50,26 @@
     revealCheck();
   }
 
+  // Hero: frases flotantes que llegan desde el fondo, controladas por scroll (síncrono, sin rAF)
+  const heroTrack = document.querySelector('.hero__track');
+  if (heroTrack && !reduce) {
+    const floats = [].slice.call(heroTrack.querySelectorAll('.float'));
+    const updateFloats = () => {
+      const rect = heroTrack.getBoundingClientRect();
+      const span = rect.height - window.innerHeight;
+      const p = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+      floats.forEach(f => {
+        const s = parseFloat(f.getAttribute('data-start')) || 0;
+        const e = parseFloat(f.getAttribute('data-end')) || 1;
+        f.classList.toggle('is-active', p >= s && p < e);
+        f.classList.toggle('is-past', p >= e);
+      });
+    };
+    window.addEventListener('scroll', updateFloats, { passive: true });
+    window.addEventListener('resize', updateFloats, { passive: true });
+    updateFloats();
+  }
+
   // Año en el footer
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
